@@ -1,0 +1,23 @@
+
+@import '../variables.styl'
+
+.Header
+  display grid
+  grid-template-columns auto 1fr
+  align-content center
+  padding 10px $layout-padding
+  background-color $background
+  transition all 1s
+  font-size 1em
+
+  &__brand
+    align-self center
+    img
+      height 80px
+
+  &__nav
+    justify-self end
+
+  @media (min-width $device-md)
+    font-size 1.5em
+

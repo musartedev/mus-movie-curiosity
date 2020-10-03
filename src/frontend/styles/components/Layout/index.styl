@@ -1,3 +1,11 @@
+
+@import '../variables.styl'
+
 .Layout
   display grid
-  grid-template-rows 100px calc(100vh - 160px) 60px
+  grid-template-rows 100px 50px calc(100vh - 210px) 60px
+  grid-gap $layout-padding
+
+  .container
+    max-width $max-width
+    margin auto

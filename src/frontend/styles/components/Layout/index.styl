@@ -3,7 +3,7 @@
 
 .Layout
   display grid
-  grid-template-rows 100px 50px calc(100vh - 210px) 60px
+  grid-template-rows 100px 50px minmax(calc(100vh - 210px), 1fr) 60px
   grid-gap $layout-padding
 
   .container

@@ -19,6 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        resolve: { extensions: ['.js', '.jsx'] },
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -41,6 +42,17 @@ module.exports = {
           'css-loader',
           'stylus-loader',
         ],
+      },
+      {
+        test: /\.jpg|jpeg|png|svg|gif|woff|ttf|eot|mp4$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: '1000',
+            name: '[hash].[ext]',
+            outputPath: 'assets',
+          },
+        },
       },
     ],
   },

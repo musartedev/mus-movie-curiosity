@@ -1,0 +1,18 @@
+@import '../variables.styl'
+
+.Header
+  display grid
+  grid-template-columns auto 1fr
+  align-content center
+  padding 10px $layout-padding
+  background-color $background
+  transition all 1s
+  font-size 1em
+
+  &__brand
+    img
+      height 50px
+
+  &__nav
+    justify-self end
+

@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import webpack from 'webpack';
 import favicon from 'serve-favicon';
 import path from 'path';
+// import { renderToString } from 'react-dom/server';
 
 dotenv.config();
 
@@ -20,32 +21,40 @@ if (ENV === 'dev') {
   const serverConfig = { port: PORT, hot: true };
 
   app.use(webpackDevMiddleware(compiler, serverConfig));
-  app.use(webpackHotMiddleware(compiler, serverConfig));
+  app.use(webpackHotMiddleware(compiler));
 }
 
+// Set Favicon
 app.use(favicon(path.join(__dirname, '..', 'favicon.ico')));
 
-const cb = (req, res) => {
-  res.send(`<!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <title>Movie Curiosity</title>
-      <link rel="stylesheet" href="assets/app.css" type="text/css" />
-      <meta
-        name="description"
-        content="🎬 Find your favorite movie and learn everything about it!"
-      />
-    </head>
-    <body>
-      <div id="app"></div>
-      <script src="assets/app.js" type="text/javascript"></script>
-    </body>
-  </html>
-  `);
+const setResponse = html => {
+  return `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <title>Movie Curiosity</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <link rel="stylesheet" href="assets/app.css" type="text/css" />
+        <meta
+          name="description"
+          content="🎬 Find your favorite movie and learn everything about it!"
+        />
+      </head>
+      <body>
+        <div id="app">${html}</div>
+        <script src="assets/app.js" type="text/javascript"></script>
+      </body>
+    </html>
+    `;
 };
 
-app.get('*', cb);
+const renderApp = (req, res) => {
+  // const html = renderToString();
+
+  res.send(setResponse(``));
+};
+
+app.get('*', renderApp);
 
 app.listen(PORT, err => {
   if (err) console.error(err);

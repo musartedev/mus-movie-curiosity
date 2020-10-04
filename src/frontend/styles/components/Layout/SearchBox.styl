@@ -1,0 +1,25 @@
+@import '../variables.styl'
+
+.search-box
+  position relative
+  width 95%
+  padding 0 2.5%
+
+  input
+    width 95%
+    height 50px
+    padding 0 2%
+    border-radius $default-radius
+
+    &:focus
+      outline 1px solid $secondary
+
+  svg
+    position absolute
+    right 5%
+    top 50%
+    transform translateY(-50%)
+
+  @media (min-width $device-md)
+    input
+      font-size 1.25em

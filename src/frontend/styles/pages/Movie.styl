@@ -1,0 +1,20 @@
+@import '../variables.styl'
+@import '../mixins.styl'
+
+.Movie
+  display flex
+  padding $layout-padding
+
+  &__poster
+    border-radius $default-radius
+    overflow hidden
+    img
+      width 100%
+
+  &__main-info
+    max-width 350px
+
+  &__rank
+    $rank-badge()
+    display block
+    text-align center

@@ -2,32 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
-import "../../../styles/components/common/MovieList/index.styl"
+import '../../../styles/components/common/MovieList/index.styl';
 
-const List = ({ title, movieList }) => {
+const MovieList = ({ title, movieList, grid }) => {
   return (
     <section className="Movie-list">
       <h2>{title}</h2>
-      <div className="Movie-list__container">
+      <div
+        className={`Movie-list__container ${
+        grid ? 'Movie-list__container--grid' : ''
+        } `}
+      >
         {movieList.map(movie => (
-          <MovieCard movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </section>
   );
 };
 
-List.propTypes = {
+MovieList.propTypes = {
   movieList: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
     })
   ),
   title: PropTypes.string.isRequired,
+  grid: PropTypes.bool,
 };
 
-List.defaultProps = {
+MovieList.defaultProps = {
   movieList: [],
+  grid: false,
 };
 
-export default List;
+export default MovieList;

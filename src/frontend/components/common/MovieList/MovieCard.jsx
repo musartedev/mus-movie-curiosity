@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
@@ -7,22 +8,32 @@ import '../../../styles/components/common/MovieList/MovieCard.styl';
 
 // TODO: Change snake-case to camelCase parsing the response
 const MovieCard = ({
-  movie: { title, overview, poster_path, vote_average },
+  movie: { id, posterUrl, title, overview, releaseYear, voteAverage },
 }) => {
   return (
-    <div className="Movie">
-      <figure>
-        <img src={poster_path} alt={title} />
-      </figure>
-      <div className="Movie__rank">
-        <AiFillStar size={14} />
-        <span>{vote_average}</span>
+    <Link to={`/movie/${id}`}>
+      <div
+        className="Movie-card"
+        role="link"
+        tabIndex="0"
+        itemScope
+        itemType="http://schema.org/Movie"
+      >
+        <figure>
+          <img src={posterUrl} alt={title} />
+        </figure>
+        <div className="Movie-card__rank">
+          <AiFillStar size={14} />
+          <span>{voteAverage}</span>
+        </div>
+        <div className="Movie-card__info">
+          <h3 itemProp="name">{`${title} (${releaseYear})`}</h3>
+          <p itemProp="abstract" className="Movie-card__overview">
+            {overview}
+          </p>
+        </div>
       </div>
-      <div className="Movie__info">
-        <h3>{title}</h3>
-        <p className="Movie__overview">{overview}</p>
-      </div>
-    </div>
+    </Link>
   );
 };
 
@@ -30,8 +41,9 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
-    vote_average: PropTypes.string.isRequired,
+    posterUrl: PropTypes.string.isRequired,
+    releaseYear: PropTypes.string.isRequired,
+    voteAverage: PropTypes.string.isRequired,
   }).isRequired,
 };
 

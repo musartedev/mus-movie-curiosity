@@ -1,6 +1,6 @@
 {
   "name": "mus-movie-curiosity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Movie Curiosity: Find your favorite movie and learn everything about it!",
   "main": "index.js",
   "scripts": {

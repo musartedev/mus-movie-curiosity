@@ -2,12 +2,12 @@ export const headerNav = [
   {
     id: 'header-trending',
     title: 'Trending',
-    link: '/',
+    link: '/trending',
   },
   {
     id: 'header-latest',
-    title: 'Latest',
-    link: '/',
+    title: 'Now Playing',
+    link: '/now-playing',
   },
 ];
 

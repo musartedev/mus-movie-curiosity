@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavList from '../../common/NavList';
 import { headerNav } from '../../../constants/Nav';
 
@@ -10,7 +11,9 @@ const Header = () => {
   return (
     <header className="Header">
       <div className="Header__brand">
-        <img src={Logo} alt="Movie Curiosity Logo" />
+        <Link to="/">
+          <img src={Logo} alt="Movie Curiosity Logo" />
+        </Link>
       </div>
       <div className="Header__nav">
         <NavList navItems={headerNav} horizontal />

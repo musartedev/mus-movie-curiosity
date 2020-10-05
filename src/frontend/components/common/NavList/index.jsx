@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import '../../../styles/components/common/NavList.styl';
@@ -11,7 +11,7 @@ const NavList = ({ navItems, horizontal }) => {
         <ul>
           {navItems.map(item => (
             <li className="nav-list__item" key={item.id}>
-              <a href={item.link}>{item.title}</a>
+              <Link to={item.link}>{item.title}</Link>
             </li>
           ))}
         </ul>

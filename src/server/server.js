@@ -5,7 +5,12 @@ import dotenv from 'dotenv';
 import webpack from 'webpack';
 import favicon from 'serve-favicon';
 import path from 'path';
-// import { renderToString } from 'react-dom/server';
+import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { renderToString } from 'react-dom/server';
+import { renderRoutes } from 'react-router-config';
+import ROUTES from '../frontend/router/routes';
+import Layout from '../frontend/components/Layout';
 
 dotenv.config();
 
@@ -13,7 +18,6 @@ const { ENV, PORT } = process.env;
 const app = express();
 
 if (ENV === 'dev') {
-  console.log('Super! You are in Development Mode. ');
   const webpackConfig = require('../../webpack.config');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -49,14 +53,19 @@ const setResponse = html => {
 };
 
 const renderApp = (req, res) => {
-  // const html = renderToString();
+  const html = renderToString(
+    <StaticRouter location={req.url} context={{}}>
+      <Layout>
+        {renderRoutes(ROUTES)}
+      </Layout>
+    </StaticRouter>
+  );
 
-  res.send(setResponse(``));
+  res.send(setResponse(html));
 };
 
 app.get('*', renderApp);
 
 app.listen(PORT, err => {
   if (err) console.error(err);
-  else console.log(`Magic happens on port ${PORT}`);
 });

@@ -31,7 +31,6 @@ const Movie = () => {
       </figure>
       <div className="Movie__main-info">
         <h1 itemProp="name">{`${title} (${releaseYear})`}</h1>
-        <span>{releaseYear}</span>
         <p className="Movie__rank">
           <AiFillStar size={14} />
           {voteAverage}

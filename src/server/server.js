@@ -19,7 +19,7 @@ dotenv.config();
 const { ENV, PORT } = process.env;
 const app = express();
 
-if (ENV === 'dev') {
+if (ENV === 'development') {
   const webpackConfig = require('../../webpack.config');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');

@@ -3,6 +3,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { VscSearch } from 'react-icons/vsc';
 import useDebounce from '../../../hooks/useDebounce';
 import { SearchContext } from '../../../context/Search';
+import { SortContext } from '../../../context/Sort';
 import { searchMovie } from '../../../api';
 
 import '../../../styles/components/Layout/SearchBox.styl';
@@ -10,6 +11,7 @@ import '../../../styles/components/Layout/SearchBox.styl';
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [, setSearchResults] = useContext(SearchContext);
+  const [, setSortedBy] = useContext(SortContext);
   const debouncedSearchTerm = useDebounce(searchTerm, 200);
   const location = useLocation();
   const history = useHistory();
@@ -33,6 +35,7 @@ const SearchBox = () => {
     }
 
     setSearchTerm(value);
+    setSortedBy('default');
   };
 
   return (

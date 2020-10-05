@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import { VscSearch } from 'react-icons/vsc';
 import useDebounce from '../../../hooks/useDebounce';
 import { SearchContext } from '../../../context/Search';
@@ -10,6 +11,8 @@ const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [, setSearchResults] = useContext(SearchContext);
   const debouncedSearchTerm = useDebounce(searchTerm, 200);
+  const location = useLocation();
+  const history = useHistory();
 
   const fetchSearchResults = async () => {
     const results = await searchMovie(searchTerm);
@@ -25,6 +28,10 @@ const SearchBox = () => {
   }, [debouncedSearchTerm]);
 
   const handleOnChange = ({ target: { value } }) => {
+    if (!location.pathname.includes('/search')) {
+      history.push('/search');
+    }
+
     setSearchTerm(value);
   };
 

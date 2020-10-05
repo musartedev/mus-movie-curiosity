@@ -8,5 +8,4 @@ require('asset-require-hook')({
   name: '/assets/[hash].[ext]',
 });
 
-
 require('./server');

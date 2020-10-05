@@ -1,11 +1,12 @@
 {
   "name": "mus-movie-curiosity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Movie Curiosity: Find your favorite movie and learn everything about it!",
   "main": "index.js",
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "dev": "nodemon src/server/index.js",
+    "start": "node src/server/index.js",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix"
   },

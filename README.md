@@ -14,7 +14,7 @@
 
 Once you have the dependencies installed, you can build the project with `npm run build`.
 
-This project has CI with Netlify.
+This project has CI with Heroku.
 
 ## 🖥 Technologies
 

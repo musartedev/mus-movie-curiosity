@@ -3,6 +3,7 @@
 
 .Movie
   display flex
+  flex-direction column
   padding $layout-padding
 
   &__poster
@@ -18,3 +19,6 @@
     $rank-badge()
     display block
     text-align center
+
+  @media (min-width $device-md)
+    flex-direction row

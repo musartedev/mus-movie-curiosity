@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "dev": "nodemon src/server/index.js",
+    "start": "node src/server/index.js",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix"
   },

@@ -10,7 +10,13 @@ const MovieCard = ({
   movie: { posterUrl, title, overview, releaseYear, voteAverage },
 }) => {
   return (
-    <div className="Movie" role="link" tabIndex="0">
+    <div
+      className="Movie"
+      role="link"
+      tabIndex="0"
+      itemScope
+      itemType="http://schema.org/Movie"
+    >
       <figure>
         <img src={posterUrl} alt={title} />
       </figure>
@@ -19,8 +25,10 @@ const MovieCard = ({
         <span>{voteAverage}</span>
       </div>
       <div className="Movie__info">
-        <h3>{`${title} (${releaseYear})`}</h3>
-        <p className="Movie__overview">{overview}</p>
+        <h3 itemProp="name">{`${title} (${releaseYear})`}</h3>
+        <p itemProp="abstract" className="Movie__overview">
+          {overview}
+        </p>
       </div>
     </div>
   );

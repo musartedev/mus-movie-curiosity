@@ -10,7 +10,7 @@ const MovieCard = ({
   movie: { posterUrl, title, overview, releaseYear, voteAverage },
 }) => {
   return (
-    <div className="Movie">
+    <div className="Movie" role="link" tabIndex="0">
       <figure>
         <img src={posterUrl} alt={title} />
       </figure>

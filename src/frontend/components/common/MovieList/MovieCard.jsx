@@ -7,19 +7,19 @@ import '../../../styles/components/common/MovieList/MovieCard.styl';
 
 // TODO: Change snake-case to camelCase parsing the response
 const MovieCard = ({
-  movie: { title, overview, poster_path, vote_average },
+  movie: { posterUrl, title, overview, releaseYear, voteAverage },
 }) => {
   return (
     <div className="Movie">
       <figure>
-        <img src={poster_path} alt={title} />
+        <img src={posterUrl} alt={title} />
       </figure>
       <div className="Movie__rank">
         <AiFillStar size={14} />
-        <span>{vote_average}</span>
+        <span>{voteAverage}</span>
       </div>
       <div className="Movie__info">
-        <h3>{title}</h3>
+        <h3>{`${title} (${releaseYear})`}</h3>
         <p className="Movie__overview">{overview}</p>
       </div>
     </div>
@@ -30,8 +30,9 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
-    vote_average: PropTypes.string.isRequired,
+    posterUrl: PropTypes.string.isRequired,
+    releaseYear: PropTypes.string.isRequired,
+    voteAverage: PropTypes.string.isRequired,
   }).isRequired,
 };
 

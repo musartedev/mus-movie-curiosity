@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
-import "../../../styles/components/common/MovieList/index.styl"
+import '../../../styles/components/common/MovieList/index.styl';
 
-const List = ({ title, movieList }) => {
+const MovieList = ({ title, movieList }) => {
   return (
     <section className="Movie-list">
       <h2>{title}</h2>
       <div className="Movie-list__container">
         {movieList.map(movie => (
-          <MovieCard movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </section>
   );
 };
 
-List.propTypes = {
+MovieList.propTypes = {
   movieList: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -26,8 +26,8 @@ List.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-List.defaultProps = {
+MovieList.defaultProps = {
   movieList: [],
 };
 
-export default List;
+export default MovieList;

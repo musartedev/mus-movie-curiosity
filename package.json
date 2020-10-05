@@ -4,8 +4,7 @@
   "description": "Movie Curiosity: Find your favorite movie and learn everything about it!",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development --port 3000",
+    "build": "webpack-cli --config webpack.config.js",
     "dev": "nodemon src/server/index.js",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix"
@@ -26,11 +25,11 @@
     "asset-require-hook": "^1.2.0",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "helmet": "3.21.2",
     "history": "^5.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
     "ignore-styles": "^5.0.1",
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
@@ -46,10 +45,12 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-manifest-plugin": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "compression-webpack-plugin": "^6.0.2",
     "css-loader": "^3.2.0",
     "dotenv-webpack": "^3.0.0",
     "eslint": "^5.16.0",
@@ -68,6 +69,7 @@
     "style-loader": "^0.23.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "terser-webpack-plugin": "^4.2.2",
     "url-loader": "^4.1.0"
   },
   "husky": {
@@ -81,5 +83,13 @@
       "npm run lint",
       "git add"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musartedev/movie-curiosity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/musartedev/movie-curiosity/issues"
+  },
+  "homepage": "https://github.com/musartedev/movie-curiosity#readme"
 }

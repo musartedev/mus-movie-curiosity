@@ -2,8 +2,8 @@ import React from 'react';
 
 const NowPlaying = () => {
   return (
-    <div>
-      <h2>Now playing</h2>
+    <div className="centered">
+      <h2>Latest</h2>
     </div>
   );
 };

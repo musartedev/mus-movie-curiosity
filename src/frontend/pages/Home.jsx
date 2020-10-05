@@ -25,8 +25,8 @@ const Home = () => {
 
   return (
     <div>
-      <MovieList title="Now Playing" movieList={nowPlayingList} />
       <MovieList title="Trending" movieList={popularList} />
+      <MovieList title="Now Playing" movieList={nowPlayingList} />
     </div>
   );
 };

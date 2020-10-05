@@ -1,6 +1,7 @@
 @import '../../../variables.styl'
+@import '../../../mixins.styl'
 
-.Movie
+.Movie-card
   position relative
   display flex
   flex-direction column
@@ -66,14 +67,11 @@
       object-fit cover
 
   &__rank
+    $rank-badge()
     position absolute
     top 0
     right 0
-    padding 5px 10px
-    height 20px
     margin 20px 20px 0 0
-    border-radius $default-radius * 2
-    background-color rgba($secondary, 0.85)
 
   &__info
     padding 10px

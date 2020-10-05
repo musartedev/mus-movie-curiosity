@@ -2,7 +2,7 @@ import React from 'react';
 
 const Trending = () => {
   return (
-    <div>
+    <div className="centered">
       <h2>Trending</h2>
     </div>
   );

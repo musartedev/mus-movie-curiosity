@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { handleFailure, handleSuccess, parseMovies } from './utils';
+import { handleFailure, handleSuccess, parseMovies, parseMovie } from './utils';
 
 const API_KEY = process.env.TMDB_API_KEY;
 const API_BASE_URL = process.env.TMDB_API_URL;
@@ -46,6 +46,21 @@ export const searchMovie = async searchTerm => {
       params: { api_key: API_KEY, query: searchTerm },
     });
     return handleSuccess(parseMovies(data.results));
+  } catch (err) {
+    return handleFailure(err);
+  }
+};
+
+/**
+ * Returns movie info
+ * @param {String} id
+ */
+export const getMovie = async id => {
+  try {
+    const { data } = await tmbdApi.get(`/movie/${id}`, {
+      params: { api_key: API_KEY },
+    });
+    return handleSuccess(parseMovie(data));
   } catch (err) {
     return handleFailure(err);
   }

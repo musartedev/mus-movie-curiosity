@@ -3,6 +3,7 @@ import NotFound from '../pages/NotFound';
 import NowPlaying from '../pages/NowPlaying';
 import Search from '../pages/Search';
 import Trending from '../pages/Trending';
+import Movie from '../pages/Movie';
 
 const ROUTES = [
   {
@@ -13,10 +14,17 @@ const ROUTES = [
     auth: false,
   },
   {
-    path: ['/search', '/s'],
+    path: ['/search'],
     key: 'SEARCH',
     exact: true,
     component: Search,
+    auth: false,
+  },
+  {
+    path: ['/movie/:id'],
+    key: 'MOVIE',
+    exact: false,
+    component: Movie,
     auth: false,
   },
   {

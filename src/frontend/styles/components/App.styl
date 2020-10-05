@@ -1,8 +1,44 @@
+@import '../variables.styl'
+
 body
-  display grid
-  place-items center
-  height 100vh
   margin 0
+  background-color rgba($background, 0.9)
+  font-family $body-font
+  color $white
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-family $header-font
+
+a
+  position relative
+  padding .25em 0
+  color $white
+  text-decoration none
+  border-bottom 1px solid $white
+  transition color .5s cubic-bezier(0,.5,0,1)
+
+  &:hover
+    color $secondary
+    border-bottom 1px solid $secondary
+
+ul
+  list-style none
+  padding 0
 
 span[role="img"]
-  margin-right 0.25em
+  margin 0 0.25em
+
+select
+  padding 15px;
+  width 300px;
+  border-radius 10px;
+
+.centered
+    display grid
+    place-items center
+    padding $layout-padding

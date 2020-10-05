@@ -1,5 +1,8 @@
 # Node template
 
+# public
+src/server/public/
+
 # Logs
 logs
 *.log

@@ -35,3 +35,18 @@ export const getNowPlayingMovies = async () => {
     return handleFailure(err);
   }
 };
+
+/**
+ * Returns movies that match with the searchTerm
+ * @param {String} searchTerm
+ */
+export const searchMovie = async searchTerm => {
+  try {
+    const { data } = await tmbdApi.get('/search/movie', {
+      params: { api_key: API_KEY, query: searchTerm },
+    });
+    return handleSuccess(parseMovies(data.results));
+  } catch (err) {
+    return handleFailure(err);
+  }
+};

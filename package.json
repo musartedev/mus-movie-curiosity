@@ -8,7 +8,10 @@
     "dev": "nodemon src/server/index.js",
     "start": "node src/server/index.js",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
-    "lint": "eslint src/ --fix"
+    "lint": "eslint src/ --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "react",
@@ -28,6 +31,8 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "dotenv": "^8.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "express": "^4.17.1",
     "helmet": "3.21.2",
     "history": "^5.0.0",
@@ -64,6 +69,7 @@
     "eslint-plugin-react": "^7.21.2",
     "file-loader": "5.1.0",
     "husky": "^2.7.0",
+    "jest": "^26.5.0",
     "lint-staged": "^8.2.1",
     "mini-css-extract-plugin": "^0.7.0",
     "prettier": "^1.19.1",
@@ -92,5 +98,13 @@
   "bugs": {
     "url": "https://github.com/musartedev/movie-curiosity/issues"
   },
-  "homepage": "https://github.com/musartedev/movie-curiosity#readme"
+  "homepage": "https://github.com/musartedev/movie-curiosity#readme",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/frontend/__test__/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(styl|css)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+    }
+  }
 }

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> Header snapshot should match 1`] = `
+<footer
+  className="Footer"
+>
+  <span>
+    Made with
+  </span>
+  <span
+    aria-label="love"
+    role="img"
+  >
+    💚
+  </span>
+  <span>
+    from
+  </span>
+  <a
+    href="https://github.com/musartedev"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Mariangélica Useche
+  </a>
+  <span>
+    to
+  </span>
+  <a
+    href="https://platzi.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Platzi
+  </a>
+</footer>
+`;

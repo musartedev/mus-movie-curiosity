@@ -73,6 +73,7 @@
     "lint-staged": "^8.2.1",
     "mini-css-extract-plugin": "^0.7.0",
     "prettier": "^1.19.1",
+    "react-test-renderer": "^16.13.1",
     "style-loader": "^0.23.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
@@ -104,7 +105,8 @@
       "<rootDir>/src/frontend/__test__/setup.js"
     ],
     "moduleNameMapper": {
-      "\\.(styl|css)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+      "\\.(styl|css)$": "<rootDir>/src/frontend/__mocks__/styleMock.js",
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/frontend/__mocks__/fileMock.js"
     }
   }
 }

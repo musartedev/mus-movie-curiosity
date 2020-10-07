@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Header snapshot should match 1`] = `
+<header
+  className="Header"
+>
+  <div
+    className="Header__brand"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Movie Curiosity Logo"
+        src=""
+      />
+    </a>
+  </div>
+  <div
+    className="Header__nav"
+  >
+    <div
+      className="nav-list nav-list--horizontal"
+    >
+      <nav>
+        <ul>
+          <li
+            className="nav-list__item"
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              Home
+            </a>
+          </li>
+          <li
+            className="nav-list__item"
+          >
+            <a
+              href="/trending"
+              onClick={[Function]}
+            >
+              Trending
+            </a>
+          </li>
+          <li
+            className="nav-list__item"
+          >
+            <a
+              href="/now-playing"
+              onClick={[Function]}
+            >
+              Latest
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+`;
